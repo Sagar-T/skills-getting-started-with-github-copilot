@@ -136,6 +136,72 @@ button:hover {
   display: none;
 }
 
+.participants-section {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #f0f7ff;
+  border-left: 4px solid #0066cc;
+  border-radius: 3px;
+}
+
+.participants-section strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #0066cc;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.participants-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.participants-list li {
+  padding: 6px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.participant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.participant-item span {
+  flex: 1;
+}
+
+.delete-participant {
+  background-color: transparent;
+  color: #d32f2f;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.delete-participant:hover {
+  color: #b71c1c;
+  transform: scale(1.2);
+}
+
+.participants-list em {
+  color: #999;
+  font-style: italic;
+}
+
 footer {
   text-align: center;
   margin-top: 30px;
