@@ -93,9 +93,18 @@ def is_student_signed_up(activity_name: str, email: str):
     activity = activities[activity_name]
     return email in activity["participants"]
 
+# Validate email is from mergington.edu domain
+def validate_mergington_email(email: str):
+    """Validate that email is from @mergington.edu domain"""
+    if not email.endswith("@mergington.edu"):
+        raise HTTPException(status_code=400, detail="Only @mergington.edu email addresses are allowed")
+
 @app.post("/activities/{activity_name}/signup")
 def signup_for_activity(activity_name: str, email: str):
     """Sign up a student for an activity"""
+    # Validate email domain
+    validate_mergington_email(email)
+    
     # Validate activity exists
     if activity_name not in activities:
         raise HTTPException(status_code=404, detail="Activity not found")
@@ -114,6 +123,9 @@ def signup_for_activity(activity_name: str, email: str):
 @app.post("/activities/{activity_name}/unregister")
 def unregister_from_activity(activity_name: str, email: str):
     """Unregister a student from an activity"""
+    # Validate email domain
+    validate_mergington_email(email)
+    
     # Validate activity exists
     if activity_name not in activities:
         raise HTTPException(status_code=404, detail="Activity not found")
